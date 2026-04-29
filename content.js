@@ -16,6 +16,18 @@ const actions = {
     if (inputBox) {
       inputBox.focus();
     }
+  },
+
+  newChat: () => {
+    // 模擬 Ctrl+Shift+O (Gemini 內建的新對話快捷鍵)
+    const event = new KeyboardEvent('keydown', {
+      key: 'o',
+      code: 'KeyO',
+      ctrlKey: true,
+      shiftKey: true,
+      bubbles: true
+    });
+    document.dispatchEvent(event);
   }
 };
 

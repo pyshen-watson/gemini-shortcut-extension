@@ -12,5 +12,11 @@ window.SHORTCUTS_CONFIG = [
     hint: 'Ctrl + /：聚焦輸入框',
     condition: { ctrl: true, key: '/' },
     action: 'focusInput'
+  },
+  {
+    id: 'new-chat',
+    hint: 'Ctrl + N：開啟新對話',
+    condition: { ctrl: true, key: 'n' },
+    action: 'newChat'
   }
 ];
