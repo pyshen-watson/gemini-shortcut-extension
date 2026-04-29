@@ -24,5 +24,11 @@ window.SHORTCUTS_CONFIG = [
     hint: 'Ctrl + I：開啟臨時對話',
     condition: { ctrl: true, key: 'i' },
     action: 'tempChat'
+  },
+  {
+    id: 'switch-model',
+    hint: 'Shift + Tab：切換模型',
+    condition: { shift: true, key: 'Tab' },
+    action: 'switchModel'
   }
 ];

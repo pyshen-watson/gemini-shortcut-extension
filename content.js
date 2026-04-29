@@ -35,6 +35,39 @@ const actions = {
     if (btn) {
       btn.click();
     }
+  },
+
+  switchModel: async () => {
+    // 先隱藏提示氣泡
+    const tooltip = document.getElementById('gemini-custom-tooltip');
+    if (tooltip) {
+      tooltip.style.display = 'none';
+    }
+
+    // 打開模型選單讓選項出現在 DOM 中
+    const modelSelectorBtn = document.querySelector('button[data-test-id="bard-mode-menu-button"], button[aria-label="開啟模式挑選器"]');
+    if (!modelSelectorBtn) {
+      return;
+    }
+
+    modelSelectorBtn.click();
+    await new Promise(r => setTimeout(r, 100));
+
+    // 找到所有模型選項
+    const options = Array.from(document.querySelectorAll('[data-mode-id]'));
+
+    if (options.length > 0) {
+      const currentIndex = options.findIndex(opt => opt.classList.contains('is-selected'));
+      const nextIndex = (currentIndex + 1) % options.length;
+
+      options[nextIndex].click();
+
+      // 切換後立即隱藏選單 (按 Escape 關閉)
+      await new Promise(r => setTimeout(r, 50));
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    } else {
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    }
   }
 };
 
@@ -74,7 +107,6 @@ function init() {
   const shortcuts = window.SHORTCUTS_CONFIG || [];
 
   if (shortcuts.length === 0) {
-    console.warn('No shortcuts configured');
     return;
   }
 
@@ -91,7 +123,6 @@ function init() {
         if (actionFn) {
           actionFn();
         } else {
-          console.warn(`Action not found: ${shortcut.action}`);
         }
         break; // 避免一次觸發多個
       }
