@@ -1,0 +1,15 @@
+#gemini-custom-tooltip {
+  position: fixed;
+  bottom: 48px;
+  right: 48px;
+  background-color: #202124;
+  color: #e8eaed;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  z-index: 999999; /* Make sure it's on top of everything */
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  display: block; /* Initially visible, you can change to 'none' */
+}

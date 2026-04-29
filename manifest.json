@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Gemini Shortcuts",
+  "version": "1.0",
+  "description": "Add custom shortcuts and a tooltip UI to Gemini.",
+  "content_scripts": [
+    {
+      "matches": ["*://gemini.google.com/*"],
+      "js": ["shortcuts.js", "content.js"],
+      "css": ["style.css"]
+    }
+  ]
+}
