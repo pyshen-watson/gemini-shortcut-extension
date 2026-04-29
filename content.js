@@ -28,6 +28,13 @@ const actions = {
       bubbles: true
     });
     document.dispatchEvent(event);
+  },
+
+  tempChat: () => {
+    const btn = document.querySelector('[data-test-id="temp-chat-button"], .temp-chat-button, button[aria-label="臨時對話"]');
+    if (btn) {
+      btn.click();
+    }
   }
 };
 

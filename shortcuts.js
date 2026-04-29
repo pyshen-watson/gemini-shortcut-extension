@@ -18,5 +18,11 @@ window.SHORTCUTS_CONFIG = [
     hint: 'Ctrl + N：開啟新對話',
     condition: { ctrl: true, key: 'n' },
     action: 'newChat'
+  },
+  {
+    id: 'temp-chat',
+    hint: 'Ctrl + I：開啟臨時對話',
+    condition: { ctrl: true, key: 'i' },
+    action: 'tempChat'
   }
 ];
